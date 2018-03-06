@@ -1,0 +1,41 @@
+{% load branding i18n %}
+{% load context_selection %}
+{% load themes %}
+
+
+<nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+  <div class="text-center navbar-brand-wrapper d-flex align-items-top justify-content-center">
+    <a class="navbar-brand brand-logo" href="index.html"><img src="images/logo.svg" alt="logo"/></a>
+    <a class="navbar-brand brand-logo-mini" href="index.html"><img src="images/logo-mini.svg" alt="logo"/></a>
+  </div>
+
+  <div class="navbar-menu-wrapper d-flex align-items-center">
+    <ul class="nav navbar-nav navbar-nav-left header-links d-none d-md-flex">
+            {% include "header/_context_selection.html" %}
+    </ul>
+
+    <ul class="navbar-nav navbar-nav-right">
+       <li class="nav-item d-none d-lg-block">
+         <a class="nav-link" href="#">
+              <img class="img-xs rounded-circle"
+                   src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTY30NT7f9PLkM8W2uSx_gm7z673-SwbLriZKEI4qeADIly-SkI"
+                   alt="">
+         </a>
+       </li>
+    </ul>
+
+    <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+      <span class="icon-menu"></span>
+    </button>
+
+
+    <ul class="nav navbar-nav navbar-right">
+      <li id="extensible-header" class="extensible-header"></li>
+      {% if profiler_enabled %}
+        {% include "developer/profiler/_mode_picker.html" %}
+      {% endif %}
+      {% include "header/_user_menu.html" %}
+      {% include "header/_region_selection.html" %}
+    </ul>
+  </div>
+</nav>

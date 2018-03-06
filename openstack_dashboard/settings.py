@@ -325,6 +325,8 @@ AVAILABLE_THEMES = [
         pgettext_lazy("Google's Material Design style theme", "Material"),
         'themes/material'
     ),
+
+
 ]
 
 # The default theme if no cookie is present
