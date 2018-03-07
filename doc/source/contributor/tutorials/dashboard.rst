@@ -476,7 +476,7 @@ The template
 Open the ``index.html`` file in the ``mydashboard/mypanel/templates/mypanel``
 directory, the auto-generated code is like the following::
 
-    {% extends 'base.html' %}
+    {% extends 'z_base.html' %}
     {% load i18n %}
     {% block title %}{% trans "Mypanel" %}{% endblock %}
 
@@ -503,7 +503,7 @@ you can change it. For example, change it to be ``My Panel`` in the
 section to be something else, you can change it. For example, change it to be
 ``My Panel``. The updated code could be like::
 
-   {% extends 'base.html' %}
+   {% extends 'z_base.html' %}
    {% load i18n %}
    {% block title %}{% trans "My Panel" %}{% endblock %}
 

@@ -329,7 +329,7 @@ templates/my_custom_dashboard/base.html``.
 In this template, redefine ``block css``. (Don't forget to include
 ``_stylesheets.html`` which includes all Horizon's default stylesheets.)::
 
-    {% extends 'base.html' %}
+    {% extends 'z_base.html' %}
 
     {% block css %}
       {% include "_stylesheets.html" %}

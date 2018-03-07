@@ -27,23 +27,81 @@
       </div>
     </noscript>
     {% block content %}
+    <div class="container-scroller">
       <div class='topbar'>
         {% include "header/_header.html" %}
       </div>
-      <div id='main_content'>
-        {% include "horizon/_messages.html" %}
-        {% block sidebar %}
-          {% include 'horizon/common/_sidebar.html' %}
-        {% endblock %}
-        <div id='content_body'>
-          <div class='container-fluid'>
+      <div class="container-fluid page-body-wrapper" style="padding-top: 65px;">
+      <!--<div class="container-fluid page-body-wrapper" id='main_content'>-->
+        {%  include "horizon/_messages.html" %}
+        <nav class="sidebar sidebar-offcanvas" style="box-shadow: 1px 0px 20px rgba(0, 0, 0, 0.08);
+                                                      background: linear-gradient(88deg, #00c0df, #2371ba);" >
+              <ul class="nav">
+                <li class="nav-item nav-profile">
+                  <div class="nav-link">
+                    <div class="profile-image">
+                      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTY30NT7f9PLkM8W2uSx_gm7z673-SwbLriZKEI4qeADIly-SkI"
+                                                     alt="image"/> <span class="online-status online"></span> </div>
+                    <div class="profile-name">
+                      <p class="name">Richard V.Welsh</p>
+                      <p class="designation">Manager</p>
+                      <div class="badge badge-teal mx-auto mt-3">Online</div>
+                    </div>
+                  </div>
+                </li>
+
+                <li class="nav-item">
+                  <a class="nav-link" href="index.html">
+                    <img class="menu-icon" src="{{STATIC_URL}}/dashboard/img/dashboard.png" alt="menu icon">
+                    <span class="menu-title">Dashboard</span>
+                  </a>
+                </li>
+
+                <li class="nav-item">
+                  <a class="nav-link" href="pages/widgets.html">
+                    <img class="menu-icon" src="{{STATIC_URL}}/dashboard/img/project-icon.png" alt="menu icon">
+                    <span class="menu-title">Projects</span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="pages/ui-features/buttons.html">
+                    <img class="menu-icon" src="{{STATIC_URL}}/dashboard/img/admin.png" alt="menu icon">
+                    <span class="menu-title">Admin</span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="pages/forms/basic_elements.html">
+                    <img class="menu-icon" src="{{STATIC_URL}}/dashboard/img/identity.png " alt="menu icon">
+                    <span class="menu-title">Identity</span>
+                  </a>
+                </li>
+                <!--<li class="nav-item">-->
+                  <!--<a class="nav-link" data-toggle="collapse" href="#general-pages" aria-expanded="false" aria-controls="general-pages"> <img class="menu-icon" src="images/menu_icons/08.png" alt="menu icon"> <span class="menu-title">General Pages</span><i class="menu-arrow"></i></a>-->
+                  <!--<div class="collapse" id="general-pages">-->
+                    <!--<ul class="nav flex-column sub-menu">-->
+                      <!--<li class="nav-item"> <a class="nav-link" href="pages/samples/blank-page.html">Blank Page</a></li>-->
+                      <!--<li class="nav-item"> <a class="nav-link" href="pages/samples/login.html">Login</a></li>-->
+                      <!--<li class="nav-item"> <a class="nav-link" href="pages/samples/register.html">Register</a></li>-->
+                      <!--<li class="nav-item"> <a class="nav-link" href="pages/samples/error-404.html">404</a></li>-->
+                      <!--<li class="nav-item"> <a class="nav-link" href="pages/samples/error-500.html">500</a></li>-->
+                    <!--</ul>-->
+                  <!--</div>-->
+                <!--</li>-->
+              </ul>
+          </nav>
+
+        <div class="main-panel">
+          <div class="page-breadcrumb" style="padding-left: 15px;padding-top: 25px;">
+            <span style="padding: 0.56rem 1.13rem;font-weight: 400;font-size: 2.0rem;">{{ page_title }}</span>
+             {% block breadcrumb_nav %}
+                {% breadcrumb_nav %}
+              {% endblock %}
+          </div>
+
+          <div class="content-wrapper">
             <div class="row">
               <div class="col-xs-12">
-                <div class="page-breadcrumb">
-                  {% block breadcrumb_nav %}
-                    {% breadcrumb_nav %}
-                  {% endblock %}
-                </div>
+
 
                 {% block page_header %}
                   {% include "horizon/common/_page_header.html" with title=page_title %}
@@ -54,6 +112,7 @@
           </div>
         </div>
       </div>
+    </div>
     {% endblock %}
     <div id="footer">
       {% block footer %}

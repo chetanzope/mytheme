@@ -1,62 +1,37 @@
 {% load horizon i18n %}
 
-<div class="sidebar-wrapper">
-  <ul id="sidebar-drawer" class="nav nav-pills nav-stacked">
-    {% for dashboard, panel_info in components %}
-      {% if user|has_permissions:dashboard %}
-        <li class="openstack-dashboard">
-          <a data-toggle="collapse"
-             data-parent="#sidebar-drawer"
-             data-target="#sidebar-drawer-{{ dashboard.slug }}"
-             href="javascript:;"
-             {% if current.slug != dashboard.slug %}
-               class="collapsed"
-             {% endif %}>
-            {{ dashboard.name }}
-            <span class="openstack-toggle pull-right fa"></span>
-          </a>
-          <ul id="sidebar-drawer-{{ dashboard.slug }}"
-              class="nav collapse panel-collapse{% if current.slug == dashboard.slug %} in{% endif %}">
-            {% for group, panels in panel_info.items %}
-              {% with panels|has_permissions_on_list:user as filtered_panels %}
-                {% if filtered_panels %}
-                  {% if group.name %}
-                    <li class="nav-header">
-                      <a data-toggle="collapse"
-                         data-parent="#sidebar-drawer-{{ dashboard.slug }}"
-                         data-target="#sidebar-drawer-{{ dashboard.slug }}-{{ group.slug }}"
-                         href="javascript:;"
-                         {% if current.slug == dashboard.slug and current_panel_group != group.slug %}class="collapsed"
-                         {% elif current.slug != dashboard.slug and forloop.counter0 != 0 %}class="collapsed"{% endif %}>
-                        <span class="nav-header-title">
-                          {{ group.name }}
-                          <span class="openstack-toggle fa pull-right"></span>
-                        </span>
-                      </a>
-                      <ul id="sidebar-drawer-{{ dashboard.slug }}-{{ group.slug }}"
-                          class="nav collapse panel-collapse
-                          {% if current.slug == dashboard.slug and current_panel_group == group.slug %} in
-                          {% elif current.slug != dashboard.slug and forloop.counter0 == 0 %} in{% endif %}">
-                  {% endif %}
-                  {% for panel in filtered_panels %}
-                    <li class="openstack-panel">
-                      <a class="openstack-spin {% if current.slug == dashboard.slug and current_panel == panel.slug %}active{% endif %}" href="{{ panel.get_absolute_url }}"
-                         target="_self"
-                         tabindex="{{ forloop.counter }}" >
-                        {{ panel.name }}
-                      </a>
-                    </li>
-                  {% endfor %}
-                  {% if group.name %}
-                      </ul>
-                    </li>
-                  {% endif %}
-                {% endif %}
-              {% endwith %}
-            {% endfor %}
-          </ul>
-        </li>
-      {% endif %}
-    {% endfor %}
-  </ul>
-</div>
+<nav class="sidebar sidebar-offcanvas" id="sidebar">
+        <ul class="nav">
+          <li class="nav-item nav-profile">
+            <div class="nav-link">
+              <div class="profile-image"> <img src="images/faces/face4.jpg" alt="image"/> <span class="online-status online"></span> </div>
+              <div class="profile-name">
+                <p class="name">Richard V.Welsh</p>
+                <p class="designation">Manager</p>
+                <div class="badge badge-teal mx-auto mt-3">Online</div>
+              </div>
+            </div>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="index.html"><img class="menu-icon" src="images/menu_icons/01.png" alt="menu icon"><span class="menu-title">Dashboard</span></a></li>
+          <li class="nav-item"><a class="nav-link" href="pages/widgets.html"><img class="menu-icon" src="images/menu_icons/02.png" alt="menu icon"><span class="menu-title">Widgets</span></a></li>
+          <li class="nav-item"><a class="nav-link" href="pages/ui-features/buttons.html"><img class="menu-icon" src="images/menu_icons/03.png" alt="menu icon"><span class="menu-title">Buttons</span></a></li>
+          <li class="nav-item"><a class="nav-link" href="pages/forms/basic_elements.html"><img class="menu-icon" src="images/menu_icons/04.png" alt="menu icon"><span class="menu-title">Form</span></a></li>
+          <li class="nav-item"><a class="nav-link" href="pages/charts/chartjs.html"><img class="menu-icon" src="images/menu_icons/05.png" alt="menu icon"><span class="menu-title">Charts</span></a></li>
+          <li class="nav-item"><a class="nav-link" href="pages/tables/basic-table.html"><img class="menu-icon" src="images/menu_icons/06.png" alt="menu icon"><span class="menu-title">Table</span></a></li>
+          <li class="nav-item"><a class="nav-link" href="pages/icons/font-awesome.html"><img class="menu-icon" src="images/menu_icons/07.png" alt="menu icon"> <span class="menu-title">Icons</span></a></li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#general-pages" aria-expanded="false" aria-controls="general-pages"> <img class="menu-icon" src="images/menu_icons/08.png" alt="menu icon"> <span class="menu-title">General Pages</span><i class="menu-arrow"></i></a>
+            <div class="collapse" id="general-pages">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="pages/samples/blank-page.html">Blank Page</a></li>
+                <li class="nav-item"> <a class="nav-link" href="pages/samples/login.html">Login</a></li>
+                <li class="nav-item"> <a class="nav-link" href="pages/samples/register.html">Register</a></li>
+                <li class="nav-item"> <a class="nav-link" href="pages/samples/error-404.html">404</a></li>
+                <li class="nav-item"> <a class="nav-link" href="pages/samples/error-500.html">500</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="pages/ui-features/typography.html"><img class="menu-icon" src="images/menu_icons/09.png" alt="menu icon"> <span class="menu-title">Typography</span></a></li>
+          <li class="nav-item purchase-button"><a class="nav-link" href="https://www.bootstrapdash.com/product/star-admin-pro/" target="_blank">Get full version</a></li>
+        </ul>
+      </nav>

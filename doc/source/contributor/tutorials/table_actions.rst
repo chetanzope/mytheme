@@ -30,7 +30,7 @@ The template file contains the HTML that will be used to show the view.
 Create a ``create_snapshot.html`` file under the ``mypanel/templates/mypanel``
 directory and add the following code::
 
-    {% extends 'base.html' %}
+    {% extends 'z_base.html' %}
     {% load i18n %}
     {% block title %}{% trans "Create Snapshot" %}{% endblock %}
 

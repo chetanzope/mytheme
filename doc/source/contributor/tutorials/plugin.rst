@@ -237,7 +237,7 @@ The index HTML is where rendering occurs. In this example, we are only using
 Django. If you are interested in using Angular directives instead, read the
 AngularJS section below.::
 
-    {% extends 'base.html' %}
+    {% extends 'z_base.html' %}
     {% load i18n %}
     {% block title %}{% trans "My plugin" %}{% endblock %}
 
@@ -331,7 +331,7 @@ panel.
 
 ::
 
-    {% extends 'base.html' %}
+    {% extends 'z_base.html' %}
     {% load i18n %}
     {% block title %}{% trans "My panel" %}{% endblock %}
 

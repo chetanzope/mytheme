@@ -163,7 +163,7 @@ to use them. For more information, see the
 
 .. code-block:: django
 
-    {% extends 'base.html' %}
+    {% extends 'z_base.html' %}
     {% load i18n %}
     {% block title %}
       {% trans "Images" %}
