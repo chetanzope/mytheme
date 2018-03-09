@@ -3,7 +3,7 @@
 {% load themes %}
 
 
-<nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row"
+<nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row"\
      style="background:#fff;color:white">
   <div class="text-center navbar-brand-wrapper d-flex align-items-top justify-content-center">
        <!--style="background: linear-gradient(88deg, #00c0df, #2371ba);">-->
@@ -26,20 +26,26 @@
                    alt="">
          </a>
        </li>
+        <li>
+        <a href="/dashboard/auth/logout/" target="_self">
+          <span class="fa fa-sign-out"></span>
+          Sign Out
+        </a>
+      </li>
     </ul>
 
-    <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
-      <span class="icon-menu"></span>
-    </button>
+    <!--<button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">-->
+      <!--<span class="icon-menu"></span>-->
+    <!--</button>-->
 
 
-    <ul class="nav navbar-nav navbar-right">
-      <li id="extensible-header" class="extensible-header"></li>
-      {% if profiler_enabled %}
-        {% include "developer/profiler/_mode_picker.html" %}
-      {% endif %}
-      {% include "header/_user_menu.html" %}
-      {% include "header/_region_selection.html" %}
-    </ul>
+    <!--<ul class="nav navbar-nav navbar-right">-->
+      <!--<li id="extensible-header" class="extensible-header"></li>-->
+      <!--{% if profiler_enabled %}-->
+        <!--{% include "developer/profiler/_mode_picker.html" %}-->
+      <!--{% endif %}-->
+      <!--{% include "header/_user_menu.html" %}-->
+      <!--{% include "header/_region_selection.html" %}-->
+    <!--</ul>-->
   </div>
 </nav>
