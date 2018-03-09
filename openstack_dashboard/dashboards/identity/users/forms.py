@@ -117,6 +117,10 @@ class CreateUserForm(PasswordMixin, BaseUserForm, AddExtraColumnMixIn):
                                   required=False,
                                   widget=forms.HiddenInput())
     name = forms.CharField(max_length=255, label=_("User Name"))
+
+    first_name = forms.CharField(max_length=255, label=_("First Name"))
+    last_name = forms.CharField(max_length=255, label=_("Last Name"))
+
     description = forms.CharField(widget=forms.widgets.Textarea(
                                   attrs={'rows': 4}),
                                   label=_("Description"),
@@ -137,10 +141,10 @@ class CreateUserForm(PasswordMixin, BaseUserForm, AddExtraColumnMixIn):
         roles = kwargs.pop('roles')
         super(CreateUserForm, self).__init__(*args, **kwargs)
         # Reorder form fields from multiple inheritance
-        ordering = ["domain_id", "domain_name", "name",
-                    "description", "email", "password",
-                    "confirm_password", "project", "role_id",
-                    "enabled"]
+        ordering = ["domain_id", "domain_name", "first_name",
+                    "last_name", "name", "email",
+                    "password", "confirm_password", "project",
+                    "role_id","description", "enabled"]
         self.add_extra_fields(ordering)
         self.fields = collections.OrderedDict(
             (key, self.fields[key]) for key in ordering)

@@ -1,0 +1,17 @@
+{% include 'horizon/common/_form_errors.html' with form=form %}
+
+{% for field in form.visible_fields %}
+    {% if field.name == 'domain_id' %}
+         {% include 'horizon/common/_form_field.html' with field=field %}
+    {% elif field.name == 'first_name' %}
+         {% include 'horizon/common/_form_field.html' with field=field %}
+    {% elif field.name == 'name' %}
+         {% include 'horizon/common/_form_field.html' with field=field %}
+    {% elif field.name == 'password' %}
+        {% include 'horizon/common/_form_field.html' with field=field %}
+    {% elif field.name == 'project' %}
+         {% include 'horizon/common/_form_field.html' with field=field %}
+    {% elif field.name == 'description' %}
+        {% include 'horizon/common/_form_field.html' with field=field %}
+    {% endif %}
+{% endfor %}

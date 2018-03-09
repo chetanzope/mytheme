@@ -7,9 +7,9 @@
     {% block header %}
       <div class="modal-header">
         {% if hide %}
-          <a href="#" class="close" data-dismiss="modal">
-            <span class="fa fa-times"></span>
-          </a>
+          <!--<a href="#" class="close" data-dismiss="modal">-->
+            <!--<span class="fa fa-times"></span>-->
+          <!--</a>-->
         {% endif %}
         <h3 class="modal-title">{% block modal-header %}{{ modal_header|default:page_title }}{% endblock %}</h3>
       </div>

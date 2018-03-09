@@ -36,62 +36,164 @@
         {%  include "horizon/_messages.html" %}
         <nav class="sidebar sidebar-offcanvas" style="box-shadow: 1px 0px 20px rgba(0, 0, 0, 0.08);
                                                       background: linear-gradient(88deg, #00c0df, #2371ba);" >
-              <ul class="nav">
-                <li class="nav-item nav-profile">
-                  <div class="nav-link">
-                    <div class="profile-image">
-                      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTY30NT7f9PLkM8W2uSx_gm7z673-SwbLriZKEI4qeADIly-SkI"
-                                                     alt="image"/> <span class="online-status online"></span> </div>
-                    <div class="profile-name">
-                      <p class="name">Richard V.Welsh</p>
-                      <p class="designation">Manager</p>
-                      <div class="badge badge-teal mx-auto mt-3">Online</div>
-                    </div>
-                  </div>
-                </li>
+          <ul class="nav">
+            <li class="nav-item nav-profile">
+              <div class="nav-link">
+                <div class="profile-image">
+                  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTY30NT7f9PLkM8W2uSx_gm7z673-SwbLriZKEI4qeADIly-SkI"
+                                                 alt="image"/> <span class="online-status online"></span> </div>
+                <div class="profile-name">
+                  <p class="name">Richard V.Welsh</p>
+                  <p class="designation">Manager</p>
+                  <div class="badge badge-teal mx-auto mt-3">Online</div>
+                </div>
+              </div>
+            </li>
 
-                <li class="nav-item">
-                  <a class="nav-link" href="index.html">
-                    <img class="menu-icon" src="{{STATIC_URL}}/dashboard/img/dashboard.png" alt="menu icon">
-                    <span class="menu-title">Dashboard</span>
-                  </a>
-                </li>
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">
+                <img class="menu-icon" src="{{STATIC_URL}}/dashboard/img/dashboard.png" alt="menu icon">
+                <span class="menu-title">Dashboard</span>
+              </a>
+            </li>
 
-                <li class="nav-item">
-                  <a class="nav-link" href="pages/widgets.html">
-                    <img class="menu-icon" src="{{STATIC_URL}}/dashboard/img/project-icon.png" alt="menu icon">
-                    <span class="menu-title">Projects</span>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="pages/ui-features/buttons.html">
-                    <img class="menu-icon" src="{{STATIC_URL}}/dashboard/img/admin.png" alt="menu icon">
-                    <span class="menu-title">Admin</span>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="pages/forms/basic_elements.html">
-                    <img class="menu-icon" src="{{STATIC_URL}}/dashboard/img/identity.png " alt="menu icon">
+            <li class="nav-item">
+              <a class="nav-link" href="#project-menu" data-toggle="collapse" aria-expanded="false"
+                 aria-controls="project-menu">
+                <img class="menu-icon" src="{{STATIC_URL}}/dashboard/img/project-icon.png" alt="menu icon">
+                <span class="menu-title">Projects</span>
+                <i class="icon-arrow-down"></i>
+              </a>
+              <div class="collapse" id="project-menu">
+                <ul class="nav flex-column sub-menu">
+                  <li class="nav-item"> <a class="nav-link" href="pages/samples/blank-page.html">Api Access</a></li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="#project-compute-menu" data-toggle="collapse" aria-expanded="false"
+                            aria-controls="project-compute-menu">Compute</a>
+                      <div class="collapse" id="project-compute-menu">
+                        <ul class="nav flex-column sub-menu">
+                          <li class="nav-item"> <a class="nav-link" href="/dashboard/project/">Overview</a></li>
+                          <li class="nav-item"> <a class="nav-link" href="/dashboard/project/instances/">Instances</a></li>
+                          <li class="nav-item"> <a class="nav-link" href="/dashboard/project/images/">Images</a></li>
+                          <li class="nav-item"> <a class="nav-link" href="/dashboard/project/key_pairs/">Key-Pairs</a></li>
+                        </ul>
+                      </div>
+
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#project-volume-menu" data-toggle="collapse" aria-expanded="false"
+                            aria-controls="project-volume-menu">Volumes</a>
+                      <div class="collapse" id="project-volume-menu">
+                        <ul class="nav flex-column sub-menu">
+                          <li class="nav-item"> <a class="nav-link" href="/dashboard/project/volumes/">volumes</a></li>
+                          <li class="nav-item"> <a class="nav-link" href="/dashboard/project/backups/">backups</a></li>
+                          <li class="nav-item"> <a class="nav-link" href="/dashboard/project/snapshots/">Snapshots</a></li>
+                          <li class="nav-item"> <a class="nav-link" href="/dashboard/project/cgroups/">Consistancy Groups</a></li>
+                          <li class="nav-item"> <a class="nav-link" href="/dashboard/project/cg_snapshots/">Consistancy Groups Snapshots</a></li>
+                        </ul>
+                      </div>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#project-network-menu" data-toggle="collapse" aria-expanded="false"
+                            aria-controls="project-network-menu">Network</a>
+                      <div class="collapse" id="project-network-menu">
+                        <ul class="nav flex-column sub-menu">
+                          <li class="nav-item"> <a class="nav-link" href="/dashboard/project/network_topology/">Network Topology</a></li>
+                          <li class="nav-item"> <a class="nav-link" href="/dashboard/project/networks/">Networks</a></li>
+                          <li class="nav-item"> <a class="nav-link" href="/dashboard/project/routers/">Routers</a></li>
+                          <li class="nav-item"> <a class="nav-link" href="/dashboard/project/security_groups/">Security Groups</a></li>
+                          <li class="nav-item"> <a class="nav-link" href="/dashboard/project/floating_ips/">Floating IPs</a></li>
+                        </ul>
+                      </div>
+                  </li>
+                </ul>
+              </div>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="#admin-menu" data-toggle="collapse" aria-expanded="false"
+                 aria-controls="admin-menu">
+                <img class="menu-icon" src="{{STATIC_URL}}/dashboard/img/admin.png" alt="menu icon">
+                <span class="menu-title">Admin</span>
+                <i class="icon-arrow-down"></i>
+              </a>
+              <div class="collapse" id="admin-menu">
+                <ul class="nav flex-column sub-menu">
+                  <li class="nav-item"> <a class="nav-link" href="/dashboard/admin/">Overview</a></li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#admin-compute-menu" data-toggle="collapse" aria-expanded="false"
+                            aria-controls="admin-compute-menu">Compute</a>
+                      <div class="collapse" id="admin-compute-menu">
+                        <ul class="nav flex-column sub-menu">
+                          <li class="nav-item"> <a class="nav-link" href="/dashboard/admin/hypervisors/">Hypervisors</a></li>
+                          <li class="nav-item"> <a class="nav-link" href="/dashboard/admin/aggregates/">Host Aggrigates</a></li>
+                          <li class="nav-item"> <a class="nav-link" href="/dashboard/admin/instances/">Instances</a></li>
+                          <li class="nav-item"> <a class="nav-link" href="/dashboard/admin/flavors/">Flavors</a></li>
+                          <li class="nav-item"> <a class="nav-link" href="/dashboard/admin/images/">Images</a></li>
+                        </ul>
+                      </div>
+
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#admin-volume-menu" data-toggle="collapse" aria-expanded="false"
+                            aria-controls="admin-volume-menu">Compute</a>
+                      <div class="collapse" id="admin-volume-menu">
+                        <ul class="nav flex-column sub-menu">
+                          <li class="nav-item"> <a class="nav-link" href="/dashboard/admin/volumes/">volumes</a></li>
+                          <li class="nav-item"> <a class="nav-link" href="/dashboard/admin/snapshots/">Snapshots</a></li>
+                          <li class="nav-item"> <a class="nav-link" href="/dashboard/admin/volume_types/">Volume Types</a></li>
+                        </ul>
+                      </div>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#admin-network-menu" data-toggle="collapse" aria-expanded="false"
+                            aria-controls="admin-network-menu">Network</a>
+                      <div class="collapse" id="admin-network-menu">
+                        <ul class="nav flex-column sub-menu">
+                          <li class="nav-item"> <a class="nav-link" href="/dashboard/admin/networks/">Networks</a></li>
+                          <li class="nav-item"> <a class="nav-link" href="/dashboard/admin/routers/">Routers</a></li>
+                          <li class="nav-item"> <a class="nav-link" href="/dashboard/admin/floating_ips/">Floating IPs</a></li>
+                        </ul>
+                      </div>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#admin-system-menu" data-toggle="collapse" aria-expanded="false"
+                            aria-controls="admin-system-menu">System</a>
+                      <div class="collapse" id="admin-system-menu">
+                        <ul class="nav flex-column sub-menu">
+                          <li class="nav-item"> <a class="nav-link" href="/dashboard/admin/defaults/">Defaults</a></li>
+                          <li class="nav-item"> <a class="nav-link" href="/dashboard/admin/metadata_defs/">Metadata-Definitions</a></li>
+                          <li class="nav-item"> <a class="nav-link" href="/dashboard/admin/info/">System Information</a></li>
+                        </ul>
+                      </div>
+                  </li>
+                </ul>
+              </div>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="#identity-menu" data-toggle="collapse" aria-expanded="false"
+                            aria-controls="identity-menu">
+                    <img class="menu-icon" src="{{STATIC_URL}}/dashboard/img/identity.png" alt="menu icon">
                     <span class="menu-title">Identity</span>
-                  </a>
-                </li>
-                <!--<li class="nav-item">-->
-                  <!--<a class="nav-link" data-toggle="collapse" href="#general-pages" aria-expanded="false" aria-controls="general-pages"> <img class="menu-icon" src="images/menu_icons/08.png" alt="menu icon"> <span class="menu-title">General Pages</span><i class="menu-arrow"></i></a>-->
-                  <!--<div class="collapse" id="general-pages">-->
-                    <!--<ul class="nav flex-column sub-menu">-->
-                      <!--<li class="nav-item"> <a class="nav-link" href="pages/samples/blank-page.html">Blank Page</a></li>-->
-                      <!--<li class="nav-item"> <a class="nav-link" href="pages/samples/login.html">Login</a></li>-->
-                      <!--<li class="nav-item"> <a class="nav-link" href="pages/samples/register.html">Register</a></li>-->
-                      <!--<li class="nav-item"> <a class="nav-link" href="pages/samples/error-404.html">404</a></li>-->
-                      <!--<li class="nav-item"> <a class="nav-link" href="pages/samples/error-500.html">500</a></li>-->
-                    <!--</ul>-->
-                  <!--</div>-->
-                <!--</li>-->
-              </ul>
-          </nav>
+                    <i class="icon-arrow-down"></i>
+                </a>
+
+              <div class="collapse" id="identity-menu">
+                <ul class="nav flex-column sub-menu">
+                  <li class="nav-item"> <a class="nav-link" href="/dashboard/identity/">Projects</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="/dashboard/identity/users/">Users</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="/dashboard/identity/groups/">Groups</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="/dashboard/identity/roles/">Roles</a></li>
+                </ul>
+              </div>
+            </li>
+
+          </ul>
+        </nav>
 
         <div class="main-panel">
-          <div class="page-breadcrumb" style="padding-left: 15px;padding-top: 25px;">
+          <div class="page-breadcrumb" style="padding-left: 15px;padding-top: 25px;border-bottom: 1px solid rgb(199, 199, 199);">
             <span style="padding: 0.56rem 1.13rem;font-weight: 400;font-size: 2.0rem;">{{ page_title }}</span>
              {% block breadcrumb_nav %}
                 {% breadcrumb_nav %}
@@ -100,13 +202,18 @@
 
           <div class="content-wrapper">
             <div class="row">
-              <div class="col-xs-12">
+              <div class="col-xs-12 grid-margin stretch-card">
+                <div class="card" style="border: 1px solid #c7c7c7;">
+                  <div class="card-body">
+                      {% block page_header %}
+                        {% include "horizon/common/_page_header.html" with title=page_title %}
+                      {% endblock %}
+                      {% block main %}{% endblock %}
+                  </div>
+
+                </div>
 
 
-                {% block page_header %}
-                  {% include "horizon/common/_page_header.html" with title=page_title %}
-                {% endblock %}
-                {% block main %}{% endblock %}
               </div>
             </div>
           </div>

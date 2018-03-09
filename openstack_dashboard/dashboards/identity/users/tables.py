@@ -181,6 +181,7 @@ class UsersTable(tables.DataTable):
                                  link="horizon:identity:users:detail",
                                  verbose_name=_('User Name'),
                                  form_field=forms.CharField(required=False))
+
     description = tables.Column(lambda obj: getattr(obj, 'description', None),
                                 verbose_name=_('Description'),
                                 hidden=KEYSTONE_V2_ENABLED,
@@ -219,3 +220,19 @@ class UsersTable(tables.DataTable):
                        DeleteUsersAction)
         table_actions = (UserFilterAction, CreateUserLink, DeleteUsersAction)
         row_class = UpdateRow
+
+
+class MyUserTable(UsersTable):
+
+    first_name = tables.WrappingColumn('first_name',
+                                       link="horizon:identity:users:detail",
+                                       verbose_name=_('First Name'),
+                                       form_field=forms.CharField(required=False))
+
+    last_name = tables.WrappingColumn('last_name',
+                                       link="horizon:identity:users:detail",
+                                       verbose_name=_('Last Name'),
+                                       form_field=forms.CharField(required=False))
+
+    class Meta(UsersTable.Meta):
+        columns = ('name', 'description', 'first_name', 'last_name')
